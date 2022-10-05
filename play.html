@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <title>Спортлото 5 из 36</title>
+</head>
+<body onload="document.body.style.background = sessionStorage.getItem('color')">
+    <div id="select-wrapper" class="content-wrapper">
+        <h2 class="content-text">Выберите 5 чисел</h2>
+        <form class="d-flex flex-column">
+            <input type="text" id="playInput" class="enter-values">
+
+            <button type="button" id="playButton" class="content-button">Проверить</button>
+            <button type="button" onclick="document.location.replace('index.html')" class="content-button">На главную</button>
+        </form>
+        <script type="text/javascript" src="script.js"></script>
+    </div>
+</body>
+</html>
