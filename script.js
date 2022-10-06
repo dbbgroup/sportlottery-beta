@@ -12,13 +12,21 @@ playBtn.addEventListener('click', function() {
     let adminEblan = playInput.value.split(" ");
 
     let sortedArr = adminEblan.sort();
-
     let randVals = Array(randomInteger(1, 36), randomInteger(1, 36), randomInteger(1, 36), randomInteger(1, 36), randomInteger(1, 36));
     let sortedRand = randVals.sort();
     let score = 0;
+    if (sortedArr.length > 5)alert('Много чисел!!!');
     for (let i = 0; i < 5; i++) {
+        if (Number.isInteger(sortedArr[i]))alert('Во вводе должны быть только числа!');
+        if (sortedArr[i] > 36)alert('ОТ 1 ДО 36 НАПИСАНО ЖЕ');
         if (sortedArr[i] == sortedRand[i]) score++;
     }
 
-    alert("Ваш счёт: "+score+" Загаданные числа: "+randVals);
+    if(sessionStorage.getItem('total') >= 500){sessionStorage.setItem("total", 0);}
+    sessionStorage.setItem("total", parseInt(sessionStorage.getItem("total")) + parseInt(score));
+
+    let popup = document.querySelector('#popup');
+    popup.style.display = "block";
+    popup.querySelector('#score').innerHTML = score;
+    popup.querySelector('#true-comb').innerHTML = randVals;
 });

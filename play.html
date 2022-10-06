@@ -8,16 +8,25 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <title>Спортлото 5 из 36</title>
 </head>
-<body onload="document.body.style.background = sessionStorage.getItem('color')">
+<body onload="document.body.style.background = sessionStorage.getItem('color');document.querySelector('#totalscore').innerHTML = sessionStorage.getItem('total');">
+    <div id="popup">
+        <h1>Ваш счёт: <span id="score">0</span></h1>
+        <p>Верная комбинация: <span id="true-comb"></span></p>
+        <div style="display: flex">
+            <button type="button" onclick="document.location.replace('index.html')" class="content-button">На главную</button>
+            <button type="button" onclick="document.location.replace('play.html')" class="content-button">Продолжить</button>
+        </div>
+    </div>
+
     <div id="select-wrapper" class="content-wrapper">
         <h2 class="content-text">Выберите 5 чисел</h2>
         <form class="d-flex flex-column">
             <input type="text" id="playInput" class="enter-values">
 
             <button type="button" id="playButton" class="content-button">Проверить</button>
-            <button type="button" onclick="document.location.replace('index.html')" class="content-button">На главную</button>
         </form>
         <script type="text/javascript" src="script.js"></script>
     </div>
+    <center style="font-family: Arial">Общий счёт за сессию: <span id="totalscore">0</span></center>
 </body>
 </html>
